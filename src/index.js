@@ -15,7 +15,7 @@ import { ConnectedRouter } from 'react-router-redux';
 
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.example.com'
+axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/api/v1`
 
 ReactDOM.render(
   <Provider store={store}>
