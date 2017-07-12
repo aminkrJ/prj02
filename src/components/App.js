@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
-import Home from './Home';
-import Cart from './Cart';
+import Home from '../containers/Home';
+import Cart from '../containers/Cart';
 
 import './App.css';
 
-import { fetchProducts } from '../actions/productsActions';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchProducts()
-  }
-
   render() {
     return (
       <div className="App">
@@ -32,14 +25,5 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-})
+export default App
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchProducts
-}, dispatch)
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App))
