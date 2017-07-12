@@ -4,16 +4,24 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchProducts } from '../actions/productsActions';
+import { addToCart } from '../actions/cartActions';
 
 class Home extends Component {
   componentWillMount() {
     this.props.fetchProducts()
   }
 
+  addToCart(product) {
+    this.props.addToCart(product)
+  }
+
   render() {
     var products = this.props.products.entities.map((product) => {
       return (
-        <div>{product.name}</div>
+        <div key={product.id}>
+          {product.name}
+          <span className='fa fa-plus-square-o' onClick={this.addToCart.bind(this, product)}></span>
+        </div>
       )
     })
     return (
@@ -29,7 +37,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchProducts
+  fetchProducts,
+  addToCart
 }, dispatch)
 
 export default connect(

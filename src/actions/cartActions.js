@@ -1,8 +1,20 @@
-export function deleteFromCart(product) {
+export function removeFromCart(product) {
   return {
-    type: "DELETE_FROM_CART",
-    payload: {
-      product
-    }
+    type: "REMOVE_FROM_CART",
+    product
+  }
+}
+
+export function addToCart(product) {
+  return {
+    type: "ADD_TO_CART",
+    product
+  }
+}
+
+export function dropFromCart(product) {
+  return {
+    type: "DROP_FORM_CART",
+    product
   }
 }
