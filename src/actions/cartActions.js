@@ -14,7 +14,7 @@ export function addToCart(product) {
 
 export function dropFromCart(product) {
   return {
-    type: "DROP_FORM_CART",
+    type: "DROP_FROM_CART",
     product
   }
 }
