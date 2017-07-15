@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { showAlertWithTimeout } from './alertsActions'
 
 export function fetchProducts() {
   return function(dispatch){
@@ -9,7 +10,11 @@ export function fetchProducts() {
     })
     .catch((err) => {
       dispatch({type: 'FETCH_PRODUCTS_REJECTED', error: err})
-      dispatch({type: 'ADD_ERROR', error: err})
+
+      showAlertWithTimeout({
+        type: 'danger',
+        message: err
+      })(dispatch)
     })
   }
 }

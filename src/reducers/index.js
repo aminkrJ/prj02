@@ -3,11 +3,11 @@ import { routerReducer } from 'react-router-redux';
 
 import cart from './cartReducer'
 import products from './productsReducer'
-import errors from './errorsReducer'
+import alerts from './alertsReducer'
 
 export default combineReducers({
   routing: routerReducer,
   cart,
-  errors,
+  alerts,
   products
 })

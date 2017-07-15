@@ -9,7 +9,9 @@ import rootReducer from './reducers';
 
 export const history = createHistory()
 
-const initialState = {}
+const initialState = {
+  alerts: {}
+}
 const enhancers = []
 const middleware = [
   thunk,

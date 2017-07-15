@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'font-awesome/css/font-awesome.css';
 
-import App from './components/App';
+import App from './containers/App';
 
 import registerServiceWorker from './registerServiceWorker';
 
