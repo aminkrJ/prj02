@@ -8,12 +8,12 @@ export function fetchProducts() {
     .then((response) => {
       dispatch({type: 'FETCH_PRODUCTS_FULFILLED', products: response.data})
     })
-    .catch((err) => {
-      dispatch({type: 'FETCH_PRODUCTS_REJECTED', error: err})
+    .catch((error) => {
+      dispatch({type: 'FETCH_PRODUCTS_REJECTED', error: error})
 
       showAlertWithTimeout({
         type: 'danger',
-        message: err
+        message: error.message
       })(dispatch)
     })
   }
