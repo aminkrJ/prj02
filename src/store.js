@@ -4,6 +4,7 @@ import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import createHistory from 'history/createBrowserHistory';
+import { nprogressMiddleware } from 'redux-nprogress';
 
 import rootReducer from './reducers';
 
@@ -16,6 +17,7 @@ const enhancers = []
 const middleware = [
   thunk,
   logger,
+  nprogressMiddleware(),
   routerMiddleware(history)
 ]
 

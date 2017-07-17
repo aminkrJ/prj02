@@ -4,6 +4,7 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { NProgress } from 'redux-nprogress';
 import Home from './Home';
 import Cart from './Cart';
 import Alerts from '../components/Alerts';
@@ -15,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NProgress />
         <Alerts alerts={this.props.alerts} />
         <header>
           <Link to="/">Home</Link>
