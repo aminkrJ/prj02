@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../actions/productsActions';
 import { addToCart } from '../actions/cartActions';
 
+import CustomInput from '../components/CustomInput';
+
 class Home extends Component {
   componentWillMount() {
     this.props.fetchProducts()
@@ -26,6 +28,8 @@ class Home extends Component {
     })
     return (
       <div className="home">
+        <CustomInput type='text' label='Credit card' mask="1111 1111 1111 1111" name='creditcard' value='4111 1111 1111 1111' />
+        <CustomInput type='email' label='Email' placeholder='foo@bar.com' name='email' required />
         { products }
       </div>
     )
