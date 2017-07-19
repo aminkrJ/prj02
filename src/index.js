@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { beginTask, endTask } from 'redux-nprogress';
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
