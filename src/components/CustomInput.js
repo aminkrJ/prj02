@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MaskedInput from 'react-maskedinput';
 import classNames from 'classnames';
 import validate from 'validate.js';
+import PropTypes from 'prop-types';
 
 import './CustomInput.css';
 
@@ -10,7 +11,7 @@ class CustomInput extends Component {
     super(props)
     this.state = {
       value: props.value,
-      isValid: true
+      errors: props.errors || []
     }
   }
 
@@ -19,20 +20,33 @@ class CustomInput extends Component {
   }
 
   handleBlur(e){
-    this.setState({ isValid: validate.single(this.state.value, Object.assign({presence: this.props.required}, this.props.constraints)) === undefined })
+    var errors = validate.single(this.state.value, Object.assign({ presence: this.props.required }, this.props.constraints))
+
+    this.setState({ errors: errors === undefined ? [] : errors })
   }
 
   render() {
+    var messages = this.state.errors.map((message) => {
+      return (
+        <div className="validation-error">{ message }</div>
+      )
+    })
     return (
-      <div className={classNames('custom-input', 'form-group', { required: this.props.required, error: !this.state.isValid })}>
+      <div className={classNames('custom-input', 'form-group', { required: this.props.required, error: this.state.errors.length > 0 })}>
         <label for={ this.props.name }>{ this.props.label }</label>
         { this.props.mask ?
         <MaskedInput { ...this.props } className='form-control' value={ this.state.value } onBlur={ this.handleBlur.bind(this) } onChange={ this.handleChange.bind(this) } /> :
         <input value={ this.state.value } { ...this.props } className='form-control' onBlur={ this.handleBlur.bind(this) } onChange={ this.handleChange.bind(this) } />
         }
+        { messages }
       </div>
     )
   }
+}
+
+CustomInput.propTypes = {
+  constraints: PropTypes.object,
+  errors: PropTypes.array
 }
 
 export default CustomInput
