@@ -26,6 +26,8 @@ function updateQuantity(state, action, step) {
         return Object.assign({}, product, {
           quantity: product.quantity + step
         })
+      }else{
+        return product
       }
     })
   )
@@ -37,6 +39,8 @@ function dropFromCart(state, action) {
     if(product.id === action.product.id) {
       itemIndex = index;
       return true;
+    }else{
+      return false;
     }
   })
   return state.slice(0, itemIndex).concat(state.slice(itemIndex + 1))
