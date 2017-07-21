@@ -1,4 +1,4 @@
-import * as actions from './actionTypes'
+import * as actions from '../constants/ActionTypes'
 
 export function showAlert(id, alert){
   return {

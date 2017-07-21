@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { showAlertWithTimeout } from './alertsActions';
 import { beginTask, endTask } from 'redux-nprogress';
-import * as actions from './actionTypes'
+import * as actions from '../constants/ActionTypes'
 
 export function fetchProducts() {
   return function(dispatch){
