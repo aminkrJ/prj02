@@ -33,7 +33,7 @@ class CustomInput extends Component {
     })
     return (
       <div className={classNames('custom-input', 'form-group', { required: this.props.required, error: this.state.errors.length > 0 })}>
-        <label for={ this.props.name }>{ this.props.label }</label>
+        <label htmlFor={ this.props.name }>{ this.props.label }</label>
         { this.props.mask ?
         <MaskedInput { ...this.props } className='form-control' value={ this.state.value } onBlur={ this.handleBlur.bind(this) } onChange={ this.handleChange.bind(this) } /> :
         <input value={ this.state.value } { ...this.props } className='form-control' onBlur={ this.handleBlur.bind(this) } onChange={ this.handleChange.bind(this) } />
