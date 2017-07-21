@@ -1,10 +1,12 @@
 import * as actions from '../constants/ActionTypes'
 
-export default function reducer(state={
+const initialState = {
   entities: [],
   isFetching: false,
   didInvalid: false
-}, action){
+}
+
+export default function reducer(state = initialState, action){
   switch (action.type){
     case actions.FETCH_PRODUCTS:
       return Object.assign({}, state, {

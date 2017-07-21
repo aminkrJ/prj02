@@ -1,6 +1,8 @@
 import * as actions from '../constants/ActionTypes'
 
-export default function reducer(state={}, action){
+const initialState = {}
+
+export default function reducer(state = initialState, action){
   switch (action.type){
     case actions.SHOW_ALERT:
       return Object.assign({}, state, {
