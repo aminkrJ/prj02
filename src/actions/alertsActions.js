@@ -1,6 +1,8 @@
+import * as actions from './actionTypes'
+
 export function showAlert(id, alert){
   return {
-    type: "SHOW_ALERT",
+    type: actions.SHOW_ALERT,
     alert,
     id
   }
@@ -8,7 +10,7 @@ export function showAlert(id, alert){
 
 export function hideAlert(id){
   return {
-    type: "HIDE_ALERT",
+    type: actions.HIDE_ALERT,
     id
   }
 }

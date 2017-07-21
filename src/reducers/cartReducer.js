@@ -1,14 +1,16 @@
+import * as actions from '../actions/actionTypes'
+
 export default function reducer(state=[], action){
   switch (action.type){
-    case "ADD_TO_CART":
+    case actions.ADD_TO_CART:
       if(state.map(p => {return p.id}).includes(action.product.id)){
         return updateQuantity(state, action, 1)
       }else{
         return state.concat(Object.assign({}, action.product, {quantity: 1}))
       }
-    case "DROP_FROM_CART":
+    case actions.DROP_FROM_CART:
       return dropFromCart(state, action)
-    case "REMOVE_FROM_CART":
+    case actions.REMOVE_FROM_CART:
       if(action.product.quantity === 1){
         return dropFromCart(state, action)
       }else{
