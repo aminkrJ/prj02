@@ -6,7 +6,7 @@ class Alerts extends Component {
     var alertItems = Object.keys(this.props.alerts).map((key) => {
       var alert = this.props.alerts[key]
       return (
-        <div className={"alert alert-" + alert.type}>{alert.message}</div>
+        <div key={key} className={"alert alert-" + alert.type}>{alert.message}</div>
       )
     })
     return (
