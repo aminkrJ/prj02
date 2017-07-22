@@ -26,9 +26,9 @@ class CustomInput extends Component {
   }
 
   render() {
-    var messages = this.state.errors.map((message) => {
+    var messages = this.state.errors.map((message, index) => {
       return (
-        <div className="validation-error">{ message }</div>
+        <div key={index} className="error-message">{ message }</div>
       )
     })
     return (
