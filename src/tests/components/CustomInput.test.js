@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import expect from 'expect.js';
-import CustomInput from '../components/CustomInput';
+import CustomInput from '../../components/CustomInput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -15,7 +15,6 @@ it('renders errors', () => {
 
   wrapper.find('input').simulate('blur')
 
-  debugger
   expect(wrapper.find('.error-message')).to.have.length(1)
   expect(wrapper.find('.error-message').text()).to.contain("can't be blank")
 
