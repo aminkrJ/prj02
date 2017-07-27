@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import {Layer, Arc, Stage} from 'react-konva';
+import {Layer, Arc, Stage, Text, Group, Label, Tag} from 'react-konva';
 import Konva from 'konva';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+
+const colors = ['LightSkyBlue', 'PaleVioletRed', 'SlateBlue', 'Khaki', 'DarkSeaGreen', 'DarkOrange']
 
 class PersonalisedNutriton extends Component {
   constructor(props) {
@@ -18,7 +20,13 @@ class PersonalisedNutriton extends Component {
 
   handleMouseOverArc(ref) {
     const arc = this.refs[ref]
+    arc.parent.parent.parent.container().style.cursor = 'pointer'
     //TODO
+  }
+
+  handleMouseLeaveArc(ref) {
+    const arc = this.refs[ref]
+    arc.parent.parent.parent.container().style.cursor = ''
   }
 
   handleExpansion(ingredient) {
@@ -48,16 +56,23 @@ class PersonalisedNutriton extends Component {
       let angle = this.calcAngel(ingredient.percentage)
       let ref = "arc" + index
       let arc =
-        <Arc key={index}
-        ref={ref}
-        x={200} y={200}
-        innerRadius={40} outerRadius={100}
-        angle={angle}
-        onMouseOver={this.handleMouseOverArc.bind(this, ref)}
-        onClick={this.handleExpansion.bind(this, ingredient)}
-        rotation={prevAngel}
-        fill={Konva.Util.getRandomColor()}
-        />
+        <Group>
+          <Arc key={index}
+          ref={ref}
+          x={100} y={100}
+          innerRadius={40} outerRadius={100}
+          angle={angle}
+          onMouseOver={this.handleMouseOverArc.bind(this, ref)}
+          onMouseLeave={this.handleMouseLeaveArc.bind(this, ref)}
+          onClick={this.handleExpansion.bind(this, ingredient)}
+          rotation={prevAngel}
+          fill={colors[index]}
+          />
+          <Label >
+            <Tag fill={ colors[index] } x={210} y={index * 25} />
+            <Text fill='white' x={210} y={index * 25} width={300} fontSize={13} text={ ingredient.name } padding={5} />
+          </Label>
+        </Group>
       prevAngel = angle
       return arc
     })

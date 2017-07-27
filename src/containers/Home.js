@@ -33,7 +33,7 @@ class Home extends Component {
         <CustomInput type='email' label='Email' placeholder='foo@bar.com' name='email' required />
         <PersonalisedNutrition product={ {name: 'product1',
           weight: 400,
-          ingredients: [{id: 1, name: 'i1', price: 0.01, percentage: 10}, {id: 2, name: 'i2', price: 0.03, percentage: 90}] } } />
+          ingredients: [{id: 1, name: 'Organic chia seeds', price: 0.01, percentage: 10}, {id: 2, name: 'Activcated Almond', price: 0.03, percentage: 90}] } } />
         { products }
       </div>
     )
