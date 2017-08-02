@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Layer, Arc, Stage, Text, Group, Label, Tag} from 'react-konva';
-import Konva from 'konva';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
