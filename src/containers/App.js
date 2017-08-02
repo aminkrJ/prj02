@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { NProgress } from 'redux-nprogress';
 import Home from './Home';
 import Cart from './Cart';
+import Checkout from './Checkout';
 import Alerts from '../components/Alerts';
 
 import './App.css';
@@ -21,11 +22,13 @@ class App extends Component {
         <header>
           <Link to="/">Home</Link>
           <Link to="/cart">Cart</Link>
+          <Link to="/checkout">Checkout</Link>
         </header>
 
         <main>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/checkout" component={Checkout} />
         </main>
 
         <footer></footer>

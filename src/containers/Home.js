@@ -8,7 +8,6 @@ import { addToCart } from '../actions/cartActions';
 
 import CustomInput from '../components/CustomInput';
 import PersonalisedNutrition from '../components/PersonalisedNutrition';
-import Stripe from '../components/Stripe';
 
 class Home extends Component {
   componentWillMount() {
@@ -35,7 +34,6 @@ class Home extends Component {
         <PersonalisedNutrition product={ {name: 'product1',
           weight: 400,
           ingredients: [{id: 1, name: 'Organic chia seeds', price: 0.01, percentage: 10}, {id: 2, name: 'Activcated Almond', price: 0.03, percentage: 90}] } } />
-        <Stripe />
         { products }
       </div>
     )
