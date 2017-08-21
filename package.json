@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "Unishop": "git+https://b7cea99a3fad3800b7b001e4d37351691020ca63:x-oauth-basic@github.com/aminkrJ/Unishop.git",
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
     "konva": "^1.6.3",
     "react": "^15.6.1",
     "react-async-script-loader": "^0.3.0",
@@ -20,7 +22,6 @@
     "redux-logger": "^3.0.6",
     "redux-nprogress": "^0.1.3",
     "redux-thunk": "^2.2.0",
-    "Unishop": "git+https://b7cea99a3fad3800b7b001e4d37351691020ca63:x-oauth-basic@github.com/aminkrJ/Unishop.git",
     "validate.js": "^0.11.1"
   },
   "devDependencies": {
