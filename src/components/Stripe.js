@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import scriptLoader from 'react-async-script-loader';
 
-let {stripe, elements} = null
+let stripe, elements, card
 
 class Stripe extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Stripe extends Component {
     }
   }
 
-  generateToken() {
+  async generateToken() {
     const {token, error} = await stripe.createToken(card)
   }
 
