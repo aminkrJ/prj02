@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 
 import 'unishop-template/dist/css/styles.css';
+import 'feather-icons-sass/feather.css';
 
 import App from './containers/App';
 

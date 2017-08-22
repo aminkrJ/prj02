@@ -42,7 +42,7 @@ class Home extends Component {
         { products }
 
         <section className="hero-slider" style={ {backgroundImage: `url(${HeroSliderBg})`} }>
-          <Carousel nav={true} dots={true} loop={true} items={1} autoplay={true} autoplayTimeOut={7000}>
+          <Carousel nav={true} dots={true} loop={true} navText={["", ""]} items={1} autoplay={true} autoplayTimeOut={7000}>
             <div key='1' className="item">
               <div className="container padding-top-3x">
                 <div className="row align-items-center">
