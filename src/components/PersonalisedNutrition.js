@@ -69,7 +69,7 @@ class PersonalisedNutriton extends Component {
           />
           <Label >
             <Tag fill={ colors[index] } x={210} y={index * 25} />
-            <Text fill='white' x={210} y={index * 25} width={300} fontSize={13} text={ ingredient.name } padding={5} />
+            <Text fill='white' x={210} y={index * 25} width={300} fontSize={13} fontFamily="Maven Pro" text={ ingredient.name } padding={5} />
           </Label>
         </Group>
       prevAngel = angle
