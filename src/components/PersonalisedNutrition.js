@@ -55,8 +55,8 @@ class PersonalisedNutriton extends Component {
       let angle = this.calcAngel(ingredient.percentage)
       let ref = "arc" + index
       let arc =
-        <Group>
-          <Arc key={index}
+        <Group key={index}>
+          <Arc
           ref={ref}
           x={100} y={100}
           innerRadius={40} outerRadius={100}
