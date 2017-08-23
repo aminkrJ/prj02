@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
 
 class Header extends Component {
+  renderProductsMenu() {
+    return(
+      this.props.products.entities.map((product, index) => {
+        return(
+          <li key={index}>
+            <Link to={ "/market/" + product.slug }>{product.name}</Link>
+          </li>
+        )
+      })
+    )
+  }
+
   render() {
     return (
       <div>
@@ -16,15 +28,12 @@ class Header extends Component {
         <nav className="site-menu">
           <ul>
             <li className="active">
-              <a href="index.html"><span>Home</span></a>
+              <Link to="/"><span>Home</span></Link>
             </li>
             <li>
-              <a href="shop-grid-ls.html"><span>MyBrands</span></a>
+              <a href="#"><span>Market</span></a>
               <ul className="sub-menu">
-                <li><a href="shop-categories.html">MyBrand 08AM</a></li>
-                <li><a href="shop-categories.html">MyBrand 10AM</a></li>
-                <li><a href="shop-categories.html">MyBrand 03PM</a></li>
-                <li><a href="shop-categories.html">MyBrand 05PM</a></li>
+                { this.renderProductsMenu() }
               </ul>
             </li>
             <li className="">

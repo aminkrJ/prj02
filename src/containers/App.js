@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
 
+import { Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -10,6 +10,7 @@ import Cart from './Cart';
 import Checkout from './Checkout';
 import Alerts from '../components/Alerts';
 import Header from '../components/Header';
+import Product from '../components/Product';
 
 import './App.css';
 
@@ -26,11 +27,12 @@ class App extends Component {
           <Link to="/checkout">Checkout</Link>
         </header>
 
-        <Header />
+        <Header products={this.props.products} />
 
         <main>
           <Route exact path="/" component={Home} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path='/market/:slug' component={Product} />
           <Route exact path="/checkout" component={Checkout} />
         </main>
 
@@ -41,7 +43,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  alerts: state.alerts
+  alerts: state.alerts,
+  products: state.products
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
