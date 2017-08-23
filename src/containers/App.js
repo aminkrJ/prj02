@@ -9,6 +9,7 @@ import Home from './Home';
 import Cart from './Cart';
 import Checkout from './Checkout';
 import Alerts from '../components/Alerts';
+import Header from '../components/Header';
 
 import './App.css';
 
@@ -24,6 +25,8 @@ class App extends Component {
           <Link to="/cart">Cart</Link>
           <Link to="/checkout">Checkout</Link>
         </header>
+
+        <Header />
 
         <main>
           <Route exact path="/" component={Home} />
