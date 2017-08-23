@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Stripe from '../components/Stripe';
+import CustomInput from '../components/CustomInput';
 
 class Checkout extends Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class Checkout extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
+        <CustomInput type='text' label='Credit card' mask="1111 1111 1111 1111" name='creditcard' value='4111 1111 1111 1111' />
+        <CustomInput type='email' label='Email' placeholder='foo@bar.com' name='email' required />
         <Stripe ref="stripe" />
         <button className='btn btn-primary' disabled={this.state.submitDisabled}>Submit Order</button>
       </form>

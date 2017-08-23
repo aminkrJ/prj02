@@ -24,23 +24,11 @@ class Home extends Component {
   }
 
   render() {
-    var products = this.props.products.entities.map((product) => {
-      return (
-        <div key={product.id}>
-          {product.name}
-          <span className='fa fa-plus-square-o' onClick={this.addToCart.bind(this, product)}></span>
-        </div>
-      )
-    })
     return (
       <div className="home">
-        <CustomInput type='text' label='Credit card' mask="1111 1111 1111 1111" name='creditcard' value='4111 1111 1111 1111' />
-        <CustomInput type='email' label='Email' placeholder='foo@bar.com' name='email' required />
         <PersonalisedNutrition product={ {name: 'product1',
           weight: 400,
           ingredients: [{id: 1, name: 'Organic chia seeds', price: 0.01, percentage: 10}, {id: 2, name: 'Activcated Almond', price: 0.03, percentage: 90}] } } />
-        { products }
-
         <section className="hero-slider" style={ {backgroundImage: `url(${HeroSliderBg})`} }>
           <Carousel nav={true} dots={true} loop={true} navText={["", ""]} items={1} autoplay={true} autoplayTimeOut={7000}>
             <div key='1' className="item">
