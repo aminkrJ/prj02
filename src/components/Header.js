@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
 
+import Alerts from './Alerts';
+import { NProgress } from 'redux-nprogress';
+
 class Header extends Component {
   renderProductsMenu() {
     return(
@@ -17,6 +20,8 @@ class Header extends Component {
   render() {
     return (
       <div>
+        <NProgress />
+        <Alerts alerts={this.props.alerts} />
         <header className="navbar navbar-sticky">
         <div className="site-branding">
           <div className="inner">
@@ -38,9 +43,6 @@ class Header extends Component {
             </li>
             <li className="">
               <a href="index.html"><span>How it works?</span></a>
-            </li>
-            <li className="">
-              <a href="index.html"><span>Contacts</span></a>
             </li>
           </ul>
         </nav>

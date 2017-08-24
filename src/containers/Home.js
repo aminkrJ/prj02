@@ -7,8 +7,6 @@ import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../actions/productsActions';
 import { addToCart } from '../actions/cartActions';
 
-import PersonalisedNutrition from '../components/PersonalisedNutrition';
-
 import Carousel from '../components/Carousel';
 import HeroSliderBg from '../img/hero-slider/main-bg.jpg';
 
@@ -50,9 +48,6 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <PersonalisedNutrition product={ {name: 'product1',
-          weight: 400,
-          ingredients: [{id: 1, name: 'Organic chia seeds', price: 0.01, percentage: 10}, {id: 2, name: 'Activcated Almond', price: 0.03, percentage: 90}] } } />
         <section className="hero-slider" style={ {backgroundImage: `url(${HeroSliderBg})`} }>
           <Carousel nav={true} dots={true} loop={true} navText={["", ""]} items={this.props.products.entities.length} autoplay={true} autoplayTimeOut={7000}>
             { this.renderProductsSlider() }

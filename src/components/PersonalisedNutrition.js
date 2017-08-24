@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Layer, Arc, Stage, Text, Group, Label, Tag} from 'react-konva';
+import {Rect, Layer, Arc, Stage, Text, Group, Label, Tag} from 'react-konva';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 
@@ -67,10 +67,10 @@ class PersonalisedNutriton extends Component {
           rotation={prevAngel}
           fill={colors[index]}
           />
-          <Label >
-            <Tag fill={ colors[index] } x={210} y={index * 25} />
-            <Text fill='white' x={210} y={index * 25} width={300} fontSize={13} fontFamily="Maven Pro" text={ ingredient.name } padding={5} />
-          </Label>
+          <Group>
+            <Rect fill={ colors[index] } width={15} height={15} x={210} y={(index * 25) + 4} />
+            <Text fill={"#606975"} x={230} y={index * 25} fontSize={12} fontFamily="Maven Pro" text={ ingredient.name } padding={5} />
+          </Group>
         </Group>
       prevAngel = angle
       return arc
@@ -78,8 +78,8 @@ class PersonalisedNutriton extends Component {
 
     return (
       <div>
-        <h3>{this.calcTotalPrice()}</h3>
-        <Stage width='400' height='400'>
+        <h3>{ this.calcTotalPrice() }</h3>
+        <Stage width='500' height='200'>
           <Layer>{ arcs }</Layer>
         </Stage>
       </div>
