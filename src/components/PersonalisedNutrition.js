@@ -59,7 +59,7 @@ class PersonalisedNutriton extends Component {
           <Arc
           ref={ref}
           x={100} y={100}
-          innerRadius={40} outerRadius={100}
+          innerRadius={50} outerRadius={80}
           angle={angle}
           onMouseOver={this.handleMouseOverArc.bind(this, ref)}
           onMouseLeave={this.handleMouseLeaveArc.bind(this, ref)}
