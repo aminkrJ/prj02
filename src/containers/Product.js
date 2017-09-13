@@ -7,13 +7,15 @@ import { addToCart } from '../actions/cartActions';
 import { fetchProducts } from '../actions/productsActions';
 
 import PersonalisedNutrition from '../components/PersonalisedNutrition';
+import PhotoGallery from '../components/PhotoGallery';
 
-import _ from 'lodash';
+import _ from 'lodash'
 
 class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      product: _.find(this.props.products.entities, (product) => { return product.slug === this.props.match.params.slug })
     }
   }
 
@@ -21,16 +23,11 @@ class Product extends Component {
     this.props.fetchProducts()
   }
 
-  renderPersonalisedNutrition() {
-    if(this.props.products.entities.length > 0){
-        return <PersonalisedNutrition product={ _.find(this.props.products.entities, (product) => { return product.slug === this.props.match.params.slug }) } />
-    }
-  }
-
   render(){
     return(
       <div>
-        { this.renderPersonalisedNutrition() }
+          <PersonalisedNutrition product={ this.state.product } />
+          <PhotoGallery photos={ this.state.product.photos } />
       </div>
     )
   }
