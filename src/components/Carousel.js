@@ -17,7 +17,7 @@ class Carousel extends Component {
 
   render() {
     return (
-      <div id={this.props.id} className={ classNames("owl-carousel", {"large-controls": this.props.largeControls, "dots-inside": this.props.dotsInside}) }>
+      <div id={this.props.id} className={ classNames("owl-carousel", {"product-carousel": this.props.productCarousel, "large-controls": this.props.largeControls, "dots-inside": this.props.dotsInside}) }>
         {this.props.children}
       </div>
     )
