@@ -25,8 +25,8 @@ class Home extends Component {
         return(
           <div key={index} className="item">
             <div className="container padding-top-3x">
-              <div className="row align-items-center">
-                <div className="col-lg-5 offset-lg-1 col-md-6 padding-bottom-2x text-md-left text-center">
+              <div className="row justify-content-center align-items-center">
+                <div className="col-lg-5 col-md-6 padding-bottom-2x text-md-left text-center">
                   <div className="from-bottom">
                     <img className="d-inline-block w-200 mb-4" src={ product.photo.original } alt={ product.name } />
                     <div className="h2 text-body text-normal mb-2 pt-1">{ product.short_description }</div>
