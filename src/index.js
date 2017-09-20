@@ -5,6 +5,7 @@ import './index.css';
 import 'unishop-template/src/vendor/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 import 'socicon/css/socicon.css'
+import 'izitoast/dist/css/iziToast.css';
 
 import 'unishop-template/dist/css/styles.css';
 import 'feather-icons-sass/feather.css';

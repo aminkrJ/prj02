@@ -9,7 +9,8 @@ import Cart from './Cart';
 import Product from './Product';
 import Checkout from './Checkout';
 
-import Header from '../components/Header';
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 import './App.css';
 
@@ -26,7 +27,7 @@ class App extends Component {
           <Route exact path="/checkout" component={Checkout} />
         </main>
 
-        <footer></footer>
+        <Footer products={this.props.products} />
       </div>
     );
   }

@@ -8,6 +8,7 @@
     "classnames": "^2.2.5",
     "feather-icons-sass": "^1.0.0",
     "font-awesome": "^4.7.0",
+    "izitoast": "^1.1.5",
     "jquery": "^3.2.1",
     "konva": "^1.6.3",
     "nprogress": "^0.2.0",
