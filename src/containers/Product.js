@@ -8,6 +8,7 @@ import { fetchProducts } from '../actions/productsActions';
 
 import PersonalisedNutrition from '../components/PersonalisedNutrition';
 import PhotoGallery from '../components/PhotoGallery';
+import PageTitle from '../components/PageTitle'
 
 import _ from 'lodash'
 
@@ -26,6 +27,7 @@ class Product extends Component {
   render(){
     return(
       <div>
+          <PageTitle title={ this.state.product.name } location={ {title: "Products", path:"#"} } />
           <PersonalisedNutrition product={ this.state.product } />
           <PhotoGallery photos={ this.state.product.photos } />
       </div>
