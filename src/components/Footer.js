@@ -4,6 +4,8 @@ import axios from 'axios'
 import NProgress from 'nprogress'
 import iziToast from 'izitoast'
 
+import PaymentMethods from '../img/card-brands.svg'
+
 class Footer extends Component {
   constructor(props) {
     super(props)
@@ -105,7 +107,7 @@ class Footer extends Component {
           <div className="row">
             <div className="col-md-7 padding-bottom-1x">
               <div className="margin-bottom-1x" style={ {maxWidth: "615px"} }>
-                <img src="img/payment_methods.png" alt="Payment Methods" />
+                <img src={PaymentMethods} alt="Payment Methods" />
               </div>
             </div>
             <div className="col-md-5 padding-bottom-1x">
