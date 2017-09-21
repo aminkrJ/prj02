@@ -10,6 +10,8 @@ import 'izitoast/dist/css/iziToast.css';
 import 'unishop-template/dist/css/styles.css';
 import 'feather-icons-sass/feather.css';
 
+import 'unishop-template/dist/js/modernizr.min.js'
+
 import App from './containers/App';
 
 import registerServiceWorker from './registerServiceWorker';
