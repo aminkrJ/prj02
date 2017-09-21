@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
 
-import Alerts from './Alerts';
-import { NProgress } from 'redux-nprogress';
+import $ from 'jquery'
 
 class Header extends Component {
   renderProductsMenu() {
@@ -19,15 +18,11 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <NProgress />
-        <Alerts alerts={this.props.alerts} />
-        <header className="navbar navbar-sticky">
+      <header className="navbar navbar-sticky">
         <div className="site-branding">
           <div className="inner">
-            <a className="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
-            <a className="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-            <a className="site-logo" href="index.html"><img src="img/logo/logo.png" alt="Unishop" /></a>
+            <a className="offcanvas-toggle menu-toggle" href="#mobile-menu" onClick={this.props.onOffcanvasOpen.bind(this)} data-toggle="offcanvas"></a>
+            <Link className="site-logo" to="/"><img src="img/logo/logo.png" alt="CocoCaca" /></Link>
           </div>
         </div>
         <nav className="site-menu">
@@ -42,14 +37,19 @@ class Header extends Component {
               </ul>
             </li>
             <li className="">
-              <a href="index.html"><span>How it works?</span></a>
+              <Link to="/how-it-works"><span>How it works?</span></Link>
+            </li>
+            <li className="">
+              <Link to="/blog"><span>Our blog</span></Link>
+            </li>
+            <li className="">
+              <Link to="/find-us"><span>Find us</span></Link>
             </li>
           </ul>
         </nav>
         <div className="toolbar">
           <div className="inner">
             <div className="tools">
-              <div className="search"><i className="icon-search"></i></div>
               <div className="account"><a href="account-orders.html"></a><i className="icon-head"></i>
                 <ul className="toolbar-dropdown">
                   <li className="sub-menu-title"><span>Hello,</span> Daniel Adams</li>
@@ -87,7 +87,6 @@ class Header extends Component {
           </div>
         </div>
       </header>
-    </div>
     )
   }
 }
