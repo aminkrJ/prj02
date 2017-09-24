@@ -123,7 +123,7 @@ class Footer extends Component {
               </form>
             </div>
           </div>
-          <p className="footer-copyright">© All rights reserved.</p>
+          <p className="footer-copyright">© All rights reserved by Personalised Nutrition.</p>
         </div>
       </footer>
 
