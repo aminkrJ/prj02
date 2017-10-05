@@ -43,7 +43,7 @@ class App extends Component {
       <div>
         <NProgress />
         <Alerts alerts={this.props.alerts} />
-        <Header onOffcanvasOpen={this.offcanvasOpen} alerts={this.props.alerts} products={this.props.products} />
+        <Header cart={this.props.cart} onOffcanvasOpen={this.offcanvasOpen} alerts={this.props.alerts} products={this.props.products} />
 
         <div className="App offcanvas-wrapper">
           <main>
@@ -66,6 +66,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   alerts: state.alerts,
+  cart: state.cart,
   products: state.products
 })
 
