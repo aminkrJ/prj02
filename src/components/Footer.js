@@ -24,7 +24,7 @@ class Footer extends Component {
 
     NProgress.start()
 
-    axios.post("/subscribers", {
+    axios.post("/campaigns/1/subscribers", {
       email: this.state.email
     })
     .then((response) => {
