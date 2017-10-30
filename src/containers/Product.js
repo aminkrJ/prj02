@@ -11,8 +11,23 @@ import PhotoGallery from '../components/PhotoGallery';
 import PageTitle from '../components/PageTitle'
 
 import _ from 'lodash'
+import classnames from 'classnames'
 
 class Product extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      activeTab: 1
+    }
+  }
+
+  isActiveTab(index) {
+    return this.state.activeTab === index
+  }
+
+  setActiveTab(index) {
+    this.setState({activeTab: index})
+  }
 
   componentDidMount() {
     this.props.fetchProducts()
@@ -56,6 +71,16 @@ class Product extends Component {
                 <div className="sp-buttons mt-2 mb-2">
                   <button className="btn btn-primary" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i className="icon-bag"></i> Add to Cart</button>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="row padding-top-3x mb-3">
+            <div className="col-lg-10 offset-lg-1">
+              <ul className="nav nav-tabs" role="tablist">
+                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(1)})} href="#description" data-toggle="tab" role="tab" onClick={this.setActiveTab.bind(this, 1)}>Description</a></li>
+                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(2)})} href="#recipes" data-toggle="tab" role="tab" onClick={this.setActiveTab.bind(this, 2)}>Recipes</a></li>
+              </ul>
+              <div className="tab-content">
               </div>
             </div>
           </div>
