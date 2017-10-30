@@ -42,10 +42,7 @@ class Header extends Component {
               <Link to="/how-it-works"><span>How it works?</span></Link>
             </li>
             <li className="">
-              <Link to="/blog"><span>Our blog</span></Link>
-            </li>
-            <li className="">
-              <Link to="/find-us"><span>Find us</span></Link>
+              <Link to="/contact-us"><span>Contact us</span></Link>
             </li>
           </ul>
         </nav>
