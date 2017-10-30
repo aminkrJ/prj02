@@ -21,6 +21,10 @@ class Product extends Component {
     }
   }
 
+  addToCart(product) {
+    this.props.addToCart(product)
+  }
+
   isActiveTab(index) {
     return this.state.activeTab === index
   }
@@ -69,7 +73,7 @@ class Product extends Component {
               <hr className="mb-3" />
               <div className="d-flex flex-wrap justify-content-between">
                 <div className="sp-buttons mt-2 mb-2">
-                  <button className="btn btn-primary" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!"><i className="icon-bag"></i> Add to Cart</button>
+                  <button className="btn btn-primary" onClick={this.addToCart.bind(this, product)}><i className="icon-bag"></i> Add to Cart</button>
                 </div>
               </div>
             </div>
@@ -77,8 +81,8 @@ class Product extends Component {
           <div className="row padding-top-3x mb-3">
             <div className="col-lg-10 offset-lg-1">
               <ul className="nav nav-tabs" role="tablist">
-                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(1)})} href="#description" data-toggle="tab" role="tab" onClick={this.setActiveTab.bind(this, 1)}>Description</a></li>
-                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(2)})} href="#recipes" data-toggle="tab" role="tab" onClick={this.setActiveTab.bind(this, 2)}>Recipes</a></li>
+                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(1)})} href="#description" role="tab" onClick={this.setActiveTab.bind(this, 1)}>Description</a></li>
+                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(2)})} href="#recipes" role="tab" onClick={this.setActiveTab.bind(this, 2)}>Recipes</a></li>
               </ul>
               <div className="tab-content">
               </div>

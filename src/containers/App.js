@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { NProgress } from 'redux-nprogress';
 import $ from 'jquery'
 
+import { dropFromCart } from '../actions/cartActions';
+
 import Home from './Home';
 import Cart from './Cart';
 import Product from './Product';
@@ -43,7 +45,7 @@ class App extends Component {
       <div>
         <NProgress />
         <Alerts alerts={this.props.alerts} />
-        <Header cart={this.props.cart} onOffcanvasOpen={this.offcanvasOpen} alerts={this.props.alerts} products={this.props.products} />
+        <Header cart={this.props.cart} onOffcanvasOpen={this.offcanvasOpen} alerts={this.props.alerts} products={this.props.products} dropFromCart={this.props.dropFromCart}/>
 
         <div className="App offcanvas-wrapper">
           <main>
@@ -71,6 +73,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  dropFromCart
 }, dispatch)
 
 export default withRouter(connect(

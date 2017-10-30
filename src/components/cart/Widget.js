@@ -2,25 +2,34 @@ import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import _ from 'lodash'
+
 class Widget extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isEmpty: this.props.cart ? true : false
     }
   }
 
+  calcSubTotal() {
+    return _.sumBy(this.props.cart, (c) => { return c.quantity * c.price })
+  }
+
+  handleDropFromCart(product) {
+    this.props.dropFromCart(product)
+  }
+
   renderCartItems() {
-    var cartItems = this.props.cart.map((cartItem) => {
+    var cartItems = this.props.cart.map((product) => {
       return (
-        <div key={cartItem.id} className="dropdown-product-item">
-          <span className="dropdown-product-remove">
+        <div key={product.id} className="dropdown-product-item">
+          <span className="dropdown-product-remove" onClick={this.handleDropFromCart.bind(this, product)}>
             <i className="icon-cross"></i>
           </span>
-          <Link className="dropdown-product-thumb" to=""><img src={cartItem.photo.thumb} alt={cartItem.name} /></Link>
+          <Link className="dropdown-product-thumb" to=""><img src={product.photo.thumb} alt={product.name} /></Link>
           <div className="dropdown-product-info">
-            <Link className="dropdown-product-title" to="">{cartItem.name}</Link>
-            <span className="dropdown-product-details">{cartItem.quantity} x ${cartItem.price}</span>
+            <Link className="dropdown-product-title" to="">{product.name}</Link>
+            <span className="dropdown-product-details">{product.quantity} x ${product.price}</span>
           </div>
         </div>
       )
@@ -31,7 +40,7 @@ class Widget extends Component {
         {cartItems}
         <div className="toolbar-dropdown-group">
           <div className="column">
-            <Link className="btn btn-sm btn-block btn-secondary" to="">View Cart</Link>
+            <Link className="btn btn-sm btn-block btn-secondary" to="/cart">View Cart</Link>
           </div>
           <div className="column">
             <Link className="btn btn-sm btn-block btn-success" to="/checkout">Checkout</Link>
@@ -46,10 +55,10 @@ class Widget extends Component {
       <div className="cart">
         <Link to="/checkout"></Link>
         <i className="icon-bag"></i>
-        <span className="count">3</span>
-        <span className="subtotal">$289.68</span>
+        <span className="count">{this.props.cart.length}</span>
+        <span className="subtotal">${this.calcSubTotal()}</span>
         <div className="toolbar-dropdown">
-          {this.state.isEmpty ? <div>Card is empty!</div> : this.renderCartItems}
+          {this.props.cart.length <= 0 ? <div>Card is empty!</div> : this.renderCartItems()}
         </div>
       </div>
     )
