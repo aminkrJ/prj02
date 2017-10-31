@@ -29,7 +29,8 @@ class Product extends Component {
     return this.state.activeTab === index
   }
 
-  setActiveTab(index) {
+  setActiveTab(index, e) {
+    e.preventDefault()
     this.setState({activeTab: index})
   }
 
@@ -39,6 +40,14 @@ class Product extends Component {
 
   render(){
     var product = _.find(this.props.products.entities, (product) => { return product.slug === this.props.match.params.slug }) || {}
+    
+    if(product.recipes) {
+      var recipes = product.recipes.map((r) => {
+        return(
+          <li> {r.title} </li>
+        )
+      })
+    }
 
     return(
       <div>
@@ -81,10 +90,22 @@ class Product extends Component {
           <div className="row padding-top-3x mb-3">
             <div className="col-lg-10 offset-lg-1">
               <ul className="nav nav-tabs" role="tablist">
-                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(1)})} href="#description" role="tab" onClick={this.setActiveTab.bind(this, 1)}>Description</a></li>
-                <li className="nav-item"><a className={classnames("nav-link", {active: this.isActiveTab(2)})} href="#recipes" role="tab" onClick={this.setActiveTab.bind(this, 2)}>Recipes</a></li>
+                <li className="nav-item">
+                  <a className={classnames("nav-link", {active: this.isActiveTab(1)})} href="#description" role="tab" onClick={this.setActiveTab.bind(this, 1)}>Description</a>
+                </li>
+                <li className="nav-item">
+                  <a className={classnames("nav-link", {active: this.isActiveTab(2)})} href="#recipes" role="tab" onClick={this.setActiveTab.bind(this, 2)}>Recipes</a>
+                </li>
               </ul>
               <div className="tab-content">
+                <div className={classnames("tab-pane fade show", {active: this.isActiveTab(1)})} role="tabpanel">
+                  {product.description}
+                </div>
+                <div className={classnames("tab-pane fade show", {active: this.isActiveTab(2)})} id="recipes" role="tabpanel">
+                  <ol>
+                    {recipes}
+                  </ol>
+                </div>
               </div>
             </div>
           </div>
